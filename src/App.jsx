@@ -24,9 +24,20 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-white/60 text-sm">
           <p>© {new Date().getFullYear()} TaskFlow. All rights reserved.</p>
           <div className="flex items-center gap-6">
-            <a href="#" className="hover:text-white">Privacy</a>
-            <a href="#" className="hover:text-white">Terms</a>
-            <a href="#" className="hover:text-white">Support</a>
+            {[
+              { href: '#', label: 'Privacy' },
+              { href: '#', label: 'Terms' },
+              { href: '#', label: 'Support' }
+            ].map((l) => (
+              <a
+                key={l.label}
+                href={l.href}
+                className="relative transition-[filter,color] hover:text-white hover:drop-shadow-[0_0_12px_rgba(59,130,246,0.55)]"
+              >
+                {l.label}
+                <span className="pointer-events-none absolute -bottom-1 left-0 h-px w-0 bg-gradient-to-r from-indigo-400 via-fuchsia-400 to-emerald-400 transition-all hover:w-full" />
+              </a>
+            ))}
           </div>
         </div>
       </footer>
